@@ -1,0 +1,13 @@
+{
+    "name": "fwsdevelopment/bic-generator",
+    "description": "Package to generate a bic code from a iban",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Frank Wichers Schreur",
+            "email": "frank@superbuddy.nl"
+        }
+    ],
+    "require": {}
+}
