@@ -1,5 +1,5 @@
 {
-    "name": "fwsdevelopment/bic-generator",
+    "name": "fwsdevelopment/bicgenerator",
     "description": "Package to generate a bic code from a iban",
     "type": "library",
     "license": "MIT",
