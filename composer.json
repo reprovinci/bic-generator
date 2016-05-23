@@ -9,5 +9,7 @@
             "email": "frank@superbuddy.nl"
         }
     ],
-    "require": {}
+    "require": {
+        "intervention/validation": "dev-master"
+    }
 }

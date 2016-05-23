@@ -2,11 +2,18 @@
 
 namespace FWSDevelopment;
 
+use Intervention\Validation\Validator;
+
 class Bic
 {
 	public function __construct($iban)
 	{
-		if ())
+		$validator = new Validator();
+
+		if (Validator::isIban($iban))
+		{
+			return $this->getBicCode($iban);
+		}
 	}
 	private function getBicCode($iban)
 	{
