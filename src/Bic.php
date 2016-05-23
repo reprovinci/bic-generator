@@ -145,7 +145,7 @@ class Bic
 		}
 		
 		$return = [
-				'country' => $country_code,
+				'country' => $countrycode,
 				'control_number' => $control_number,
 				'bank_code' => $bank_code,
 				'bank_number' => $bank_number
