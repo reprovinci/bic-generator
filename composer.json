@@ -17,5 +17,5 @@
     "minimum-stability": "dev",
     "require": {
         "intervention/validation": "dev-master"
-    },
+    }
 }
