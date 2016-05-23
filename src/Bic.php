@@ -7,6 +7,7 @@ use Intervention\Validation\Validator;
 class Bic
 {
 	public $bic;
+	public $countyCode;
 
 	public function __construct($iban)
 	{
@@ -14,8 +15,16 @@ class Bic
 
 		if (Validator::isIban($iban))
 		{
-			return $this->getBicCode($iban);
+			$iban_parts = $this->partIban($iban);
+
+			$this->getBicCode($iban_parts);
+			$this->getCountyCode($iban_parts);
 		}
+	}
+
+	public function getCountyCode($iban)
+	{
+		$this->countyCode = $iban['country'];
 	}
 
 	public function getBicCode($iban)
@@ -91,11 +100,9 @@ class Bic
 			'ZWLB' => 'ZWLBNL21'
 		];
 
-		$iban_parts = $this->partIban($iban);
-
-		if (array_key_exists($iban_parts['bank_code'], $bank_and_bic))
+		if (array_key_exists($iban['bank_code'], $bank_and_bic))
 		{
-			$this->bic = $bank_and_bic[$iban_parts['bank_code']];
+			$this->bic = $bank_and_bic[$iban['bank_code']];
 		}
 	}
 
