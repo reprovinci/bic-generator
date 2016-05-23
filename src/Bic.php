@@ -90,7 +90,7 @@ class Bic
 		];
 
 		$iban_parts = $this->partIban($iban);
-
+		dd($iban_parts);
 		if (in_array($iban_parts['bank_code'], $bank_and_bic))
 		{
 			return $bank_and_bic[$iban_parts['bank_code']];
@@ -106,37 +106,36 @@ class Bic
 		$bank_code = "";
 		$bank_number = "";
 
-
 		for ($i=0; $i<Count($iban_split); $i++)
 		{
 			if ($i == 0 || $i == 1)
 			{
-				if (preg_match('/^[a-z]+/', strtolower($split)))
+				if (preg_match('/^[a-z]+/', strtolower($iban_split[$i])))
 				{
-					$countrycode .= strtoupper($split);
+					$countrycode .= strtoupper($iban_split[$i]);
 				}
 			}
 			if ($i >= 2 || $i <= 3)
 			{
-				if (preg_match('/^[0-9]/', $split))
+				if (preg_match('/^[0-9]/', $iban_split[$i]))
 				{
-					$control_number .= $split;
+					$control_number .= $iban_split[$i];
 				}
 			}
 			if ($i >= 4 || $i <= 7)
 			{
 				// Bank code
-				if (preg_math('/^[a-z]+/', $split))
+				if (preg_math('/^[a-z]+/', $iban_split[$i]))
 				{
-					$bank_code .= strtoupper($split);
+					$bank_code .= strtoupper($iban_split[$i]);
 				}
 			}
 			if ($i >= 7)
 			{
 				// everything has to be nummeric
-				if (preg_match('/^[0-9]+/', $split))
+				if (preg_match('/^[0-9]+/', $iban_split[$i]))
 				{
-					$bank_number .= $split;
+					$bank_number .= $iban_split[$i];
 				}
 			}
 		}
