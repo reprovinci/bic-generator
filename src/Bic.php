@@ -15,6 +15,7 @@ class Bic
 			return $this->getBicCode($iban);
 		}
 	}
+
 	private function getBicCode($iban)
 	{
 		$bank_and_bic = [
@@ -105,26 +106,24 @@ class Bic
 		$bank_code = "";
 		$bank_number = "";
 
-		foreach ($iban_split as $split)
+
+		for ($i=0; $i<Count($iban_split); $i++)
 		{
-			$count = 0;
-			// Get the country code
-			if ($count == 0 || $count == 1)
+			if ($i == 0 || $i == 1)
 			{
-				//get the country code
 				if (preg_match('/^[a-z]+/', strtolower($split)))
 				{
 					$countrycode .= strtoupper($split);
 				}
 			}
-			elseif ($count >= 2 || $count <= 3)
+			if ($i >= 2 || $i <= 3)
 			{
 				if (preg_match('/^[0-9]/', $split))
 				{
 					$control_number .= $split;
 				}
 			}
-			elseif ($count >= 4 || $count <= 7)
+			if ($i >= 4 || $i <= 7)
 			{
 				// Bank code
 				if (preg_math('/^[a-z]+/', $split))
@@ -132,7 +131,7 @@ class Bic
 					$bank_code .= strtoupper($split);
 				}
 			}
-			elseif ($count >= 7)
+			if ($i >= 7)
 			{
 				// everything has to be nummeric
 				if (preg_match('/^[0-9]+/', $split))
@@ -140,8 +139,6 @@ class Bic
 					$bank_number .= $split;
 				}
 			}
-		
-			$count++;
 		}
 		
 		$return = [
