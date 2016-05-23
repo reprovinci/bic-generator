@@ -9,13 +9,13 @@
             "email": "frank@superbuddy.nl"
         }
     ],
-    "require": {
-        "intervention/validation": "dev-master"
-    },
     "autoload": {
       "psr-4": {
         "FwsDevelopment\\": "src/"
       }
     },
     "minimum-stability": "dev",
+    "require": {
+        "intervention/validation": "dev-master"
+    },
 }
