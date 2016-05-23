@@ -6,6 +6,8 @@ use Intervention\Validation\Validator;
 
 class Bic
 {
+	public $bic;
+
 	public function __construct($iban)
 	{
 		$validator = new Validator();
@@ -16,7 +18,7 @@ class Bic
 		}
 	}
 
-	private function getBicCode($iban)
+	public function getBicCode($iban)
 	{
 		$bank_and_bic = [
 			'ABNA' => 'ABNANL2A',
@@ -93,11 +95,11 @@ class Bic
 
 		if (array_key_exists($iban_parts['bank_code'], $bank_and_bic))
 		{
-			return $bank_and_bic[$iban_parts['bank_code']];
+			$this->bic = $bank_and_bic[$iban_parts['bank_code']];
 		}
 	}
 
-	private function partIban($iban)
+	public function partIban($iban)
 	{
 		$iban_split = str_split($iban);
 		
