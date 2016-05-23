@@ -1,6 +1,6 @@
 <?php
 
-namespace FWSDevelopment;
+namespace FwsDevelopment;
 
 use Intervention\Validation\Validator;
 
