@@ -7,7 +7,7 @@ use Intervention\Validation\Validator;
 class Bic
 {
 	public $bic;
-	public $countyCode;
+	public $country;
 
 	public function __construct($iban)
 	{
@@ -24,7 +24,7 @@ class Bic
 
 	public function getCountyCode($iban)
 	{
-		$this->countyCode = $iban['country'];
+		$this->country = $iban['country'];
 	}
 
 	public function getBicCode($iban)
