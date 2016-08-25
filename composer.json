@@ -3,7 +3,7 @@
     "description": "Package to generate a bic code from a iban",
     "type": "library",
     "license": "MIT",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Frank Wichers Schreur",
@@ -15,7 +15,7 @@
         "FwsDevelopment\\": "src/"
       }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "intervention/validation": "dev-master"
     }
